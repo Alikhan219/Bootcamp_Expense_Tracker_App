@@ -3,8 +3,8 @@ import './App.css';
 
 function App() {
   return (
-    <div >
-     <h1>Expense Tracker</h1>
+    <div className="container">
+     <h1 className="text_center">Expense Tracker</h1>
 
 
 
@@ -13,6 +13,8 @@ function App() {
      <h3>Income <br /> $260</h3>
      <h3>Expense <br /> $260</h3>
      </div>
+     <h3>History</h3>
+     <hr />
     </div>
   );
 }
