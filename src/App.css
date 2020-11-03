@@ -11,18 +11,26 @@ body{
    box-shadow: 0 0 10px -2px gray;
    margin-top: 50px;
    padding: 15px 50px;
-   letter-spacing: 1px;
+  
    
 }
+
 .text_center{
   font-size: 3rem;
    font-family: 'Nunito', sans-serif;
+   background-color: deepskyblue;
+   color: white;
+   text-align: center;
+   box-shadow: 0px 5px 15px -5px rgba(0,0,0,0.4);
+   border-radius: 9px;
+   
 }
 .expense_container{
   display: flex;
   justify-content: space-around;
   background-color: white;
   box-shadow: 0px 5px 15px -5px rgba(0,0,0,0.4);
+  
 }
 .Transaction_form{
   display: block;
@@ -35,7 +43,8 @@ label{
   display: inline-block;
   margin: 10px 0;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
+  font-family: 'Nunito', sans-serif;
 }
 h3{
  text-transform: uppercase;
@@ -51,6 +60,7 @@ h3{
   border-bottom: 1px solid #bbb;
     padding-bottom: 10px;
     margin: 40px 0 10px;
+    margin-top: 50px;
 }
 .big-txt{
   font-size: 2.2rem;
@@ -58,7 +68,9 @@ h3{
 
 .IandE{
   text-align: center;
+  
 }
+
 .btn, input[type=number], input[type=text]{
   display: block;
   font-size: 16px;
@@ -75,14 +87,15 @@ input[type=number], input[type=text]{
     width: 100%;
     box-sizing: border-box;
     font-size: 20px;
+    font-family: 'Nunito', sans-serif;
 }
 .btn{
   
-    font-size: 20px;
+    font-size: 22px;
     margin: 0 0 10px;
     outline: 0;
     border: 0;
-    background-color: blue;
+    background-color: deepskyblue;
     padding: 15px;
     width: 100%;
     box-sizing: border-box;
@@ -90,13 +103,15 @@ input[type=number], input[type=text]{
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 700;
+    box-shadow: 0px 5px 15px -5px rgba(0,0,0,0.4);
+    font-family: 'Nunito', sans-serif;
 }
 .btn:hover{
   background: white;
-  color: blue;
+  color: deepskyblue;
  box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.2);
- font-size: 21px;
- 
+ font-size: 23px;
+ font-family: 'Nunito', sans-serif;
 }
 .income-h3{
   color: #2ecc71;
