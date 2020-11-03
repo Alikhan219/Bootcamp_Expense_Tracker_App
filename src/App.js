@@ -25,7 +25,7 @@ function App() {
         <div className="form_control">
           <label for="text">Text</label>
           <br />
-          <input type="text" />
+          <input type="text" placeholder="Enter text..."/>
         </div>
         <br />
         <div className="form_control">
@@ -33,7 +33,7 @@ function App() {
           <br />
           (negative - expense, positive - income)
           </label>
-          <input type="number" />
+          <input type="number" placeholder="Enter amount..."/>
         </div>
         <br />
         <button className="btn">Add Transaction</button>
