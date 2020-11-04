@@ -49,6 +49,7 @@ function App() {
           <label for="text">Text</label>
 
           <input
+           name="thing"
             type="text"
             placeholder="Enter text..."
             onChange={inputEvent}
@@ -63,6 +64,7 @@ function App() {
             (negative - expense, positive - income)
           </label>
           <input
+            name="amounts"
             type="number"
             placeholder="Enter amount..."
             onChange={inputEvent}
