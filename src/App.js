@@ -2,15 +2,23 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [amount, setAmount] = useState('')
+  const [amount, setAmount] = useState({
+    thing: '',
+    amounts: '',
+  });
 
-  const inputEvent=(event)=>{
-     setAmount(event.target.value)
-     console.log(event.target.value)
-  }
-const onSubmit=()=>{
-       
-}
+  const inputEvent = (event) => {
+    const { value, name } = event.target;
+    setAmount((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value,
+      };
+    });
+  };
+  const onSubmit = (event) => {
+    event.preventDefault();
+  };
   return (
     <div className="container">
       <h1 className="text_center">Expense Tracker</h1>
@@ -21,7 +29,7 @@ const onSubmit=()=>{
       </h3>
       <div className="expense_container">
         <h3 className="IandE">
-          Income <br /> <span className="income-h3"> PKR 260.00</span>
+          Income <br /> <span className="income-h3">{amount.amounts}</span>
         </h3>
         <h3 className="IandE">
           Expense <br />
@@ -30,22 +38,22 @@ const onSubmit=()=>{
       </div>
       <h3 className="border">History</h3>
       <div className="hist-div">
-      <h4 className="hist-txt">Cash</h4>
-      <h4 className="hist-amount"> +PKR 260.00</h4>
+        <h4 className="hist-txt">{amount.thing}</h4>
+        <h4 className="hist-amount"> {amount.amounts}</h4>
       </div>
-      <div className="hist-div">
-      <h4 className="hist-txt">Cash</h4>
-      <h4 className="hist-amount"> +PKR 260.00</h4>
-      </div>
-      
-      
+
       <h3 className="bottom">Add New Transaction</h3>
       <br />
-      <form className="Transaction_form">
+      <form className="Transaction_form" onSubmit={onSubmit}>
         <div className="form_control">
           <label for="text">Text</label>
 
-          <input type="text" placeholder="Enter text..."  onChange={inputEvent} value={amount} />
+          <input
+            type="text"
+            placeholder="Enter text..."
+            onChange={inputEvent}
+            value={amount.thing}
+          />
         </div>
         <br />
         <div className="form_control">
@@ -54,10 +62,15 @@ const onSubmit=()=>{
             <br />
             (negative - expense, positive - income)
           </label>
-          <input type="number" placeholder="Enter amount..."  onChange={inputEvent} value={amount} />
+          <input
+            type="number"
+            placeholder="Enter amount..."
+            onChange={inputEvent}
+            value={amount.amounts}
+          />
         </div>
         <br />
-        <button className="btn" onClick={onSubmit}>Add Transaction</button>
+        <button className="btn">Add Transaction</button>
       </form>
     </div>
   );
