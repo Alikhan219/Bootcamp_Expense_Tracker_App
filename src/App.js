@@ -1,12 +1,12 @@
 import React from "react"
 import Child from "./Child"
-
+import {TransactionProvider} from "./TransContext"
 
 const App=()=>{
     return(
-        <div>
+        <TransactionProvider>
             <Child />
-        </div>
+        </TransactionProvider>
     )
 }
 export default App;
