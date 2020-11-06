@@ -124,18 +124,21 @@ input[type=number], input[type=text]{
   color: red;
 }
 .hist-div{
-  margin-top: 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.2);
-  border-right: 4px solid #2ecc71;
-  
+  margin: 0;
+  padding: 0;
 }
 .hist-txt{
-  margin-left: 20px;
+  margin-left: 15px;
 }
 .hist-amount{
   margin-right: 15px;
+}
+.hist-div > li {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+  border-right: 4px solid #2ecc71;
+  padding: 10px 5px;
+  margin: 15px 0;
 }

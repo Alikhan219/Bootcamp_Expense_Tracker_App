@@ -1,25 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
 function Child() {
-  
-  const [amount, setAmount] = useState({
-    thing: '',
-    amounts: '',
-  });
 
-  const inputEvent = (event) => {
-    const { value, name } = event.target;
-    setAmount((prevValue) => {
-      return {
-        ...prevValue,
-        [name]: value,
-      };
-    });
-  };
-  const onSubmit = (event) => {
-    
-}
+  let Transactions= [
+    {amount: 500, desc: "cash"},
+    {amount: -40, desc: "book"},
+    {amount: -200, desc: "camera"}
+  ]
+
   return (
     <div className="container">
       <h1 className="text_center">Expense Tracker</h1>
@@ -30,7 +19,7 @@ function Child() {
       </h3>
       <div className="expense_container">
         <h3 className="IandE">
-          Income <br /> <span className="income-h3">{amount.amounts}</span>
+          Income <br /> <span className="income-h3"></span>
         </h3>
         <h3 className="IandE">
           Expense <br />
@@ -38,24 +27,24 @@ function Child() {
         </h3>
       </div>
       <h3 className="border">History</h3>
-      <div className="hist-div">
-        <h4 className="hist-txt">{amount.thing}</h4>
-        <h4 className="hist-amount"> {amount.amounts}</h4>
-      </div>
+      <ul className="hist-div">
+      <li>
+        <span className="hist-txt">20</span>
+        <span className="hist-amount">Cash</span>
+        </li>
+        <li>
+        <span className="hist-txt">20</span>
+        <span className="hist-amount">Cash</span>
+        </li>
+      </ul>
 
       <h3 className="bottom">Add New Transaction</h3>
       <br />
-      <form className="Transaction_form" onSubmit={onSubmit}>
+      <form className="Transaction_form">
         <div className="form_control">
           <label for="text">Text</label>
 
-          <input
-           name="thing"
-            type="text"
-            placeholder="Enter text..."
-            onChange={inputEvent}
-            value={amount.thing}
-          />
+          <input name="thing" type="text" placeholder="Enter text..." />
         </div>
         <br />
         <div className="form_control">
@@ -64,13 +53,7 @@ function Child() {
             <br />
             (negative - expense, positive - income)
           </label>
-          <input
-            name="amounts"
-            type="number"
-            placeholder="Enter amount..."
-            onChange={inputEvent}
-            value={amount.amounts}
-          />
+          <input name="amounts" type="number" placeholder="Enter amount..." />
         </div>
         <br />
         <button className="btn">Add Transaction</button>
