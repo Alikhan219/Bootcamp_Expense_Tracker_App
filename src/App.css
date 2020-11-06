@@ -127,12 +127,7 @@ input[type=number], input[type=text]{
   margin: 0;
   padding: 0;
 }
-.hist-txt{
-  margin-left: 15px;
-}
-.hist-amount{
-  margin-right: 15px;
-}
+
 .hist-div > li {
   display: flex;
   justify-content: space-between;

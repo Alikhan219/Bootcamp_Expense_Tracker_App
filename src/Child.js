@@ -1,13 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.css";
+import { TransactionContext } from "./TransContext";
 
 function Child() {
-
-  let Transactions= [
-    {amount: 500, desc: "cash"},
-    {amount: -40, desc: "book"},
-    {amount: -200, desc: "camera"}
-  ]
+  let Transactions = useContext(TransactionContext);
 
   return (
     <div className="container">
@@ -19,7 +15,7 @@ function Child() {
       </h3>
       <div className="expense_container">
         <h3 className="IandE">
-          Income <br /> <span className="income-h3"></span>
+          Income <br /> <span className="income-h3">PKR 360.00</span>
         </h3>
         <h3 className="IandE">
           Expense <br />
@@ -28,14 +24,14 @@ function Child() {
       </div>
       <h3 className="border">History</h3>
       <ul className="hist-div">
-      <li>
-        <span className="hist-txt">20</span>
-        <span className="hist-amount">Cash</span>
-        </li>
-        <li>
-        <span className="hist-txt">20</span>
-        <span className="hist-amount">Cash</span>
-        </li>
+        {Transactions.map((transOb, indx) => {
+          return (
+            <li>
+              <span>{transOb.desc}</span>
+              <span>{transOb.amount}</span>
+            </li>
+          );
+        })}
       </ul>
 
       <h3 className="bottom">Add New Transaction</h3>
