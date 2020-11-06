@@ -9,7 +9,11 @@ function Child() {
 
   const handleAddition = (event) => {
     event.preventDefault();
-    console.log(newDesc, newAmount);
+  if(Number(newAmount)===0){
+    alert('Please enter correct value')
+    return false;
+  }
+    
     addTransaction({
       amount: Number(newAmount),
       desc: newDesc,
@@ -27,7 +31,7 @@ function Child() {
   const getExpense = () => {
     let expense = 0;
     for (var i = 0; i < transactions.length; i++) {
-      if (transactions[i].amount > 0) expense += transactions[i].amount;
+      if (transactions[i].amount < 0) expense += transactions[i].amount;
     }
     return expense;
   };
@@ -37,7 +41,7 @@ function Child() {
       <h1 className="text_center">Expense Tracker</h1>
       <h3>
         Your Balance <br />
-        <span className="big-txt"> {getIncome() + getExpense()}</span>
+        <span className="big-txt">{getIncome() + getExpense()}</span>
       </h3>
       <div className="expense_container">
         <h3 className="IandE">
