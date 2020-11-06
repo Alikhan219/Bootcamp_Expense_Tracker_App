@@ -133,7 +133,25 @@ input[type=number], input[type=text]{
   justify-content: space-between;
   box-sizing: border-box;
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
-  border-right: 4px solid #2ecc71;
-  padding: 10px 5px;
-  margin: 15px 0;
+  padding: 10px 15px;
+  margin: 10px 0;
+  
 }
+
+.cash{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+ 
+}
+#deleteBtn{
+  transition: all 0.3s ease-in-out;
+  margin-right: 5px;
+}
+#deleteBtn:hover{
+  
+  color: red;
+}
+
+

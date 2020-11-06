@@ -1,6 +1,9 @@
 import React, { useContext, useState } from "react";
 import "./App.css";
 import { TransactionContext } from "./TransContext";
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
+
 
 function Child() {
   let { transactions, addTransaction } = useContext(TransactionContext);
@@ -12,14 +15,13 @@ function Child() {
   if(Number(newAmount)===0){
     alert('Please enter correct value')
     return false;
-  }
-    
+  } 
     addTransaction({
       amount: Number(newAmount),
       desc: newDesc,
     });
     setDesc('')
-    setAmount('')
+    setAmount(0)
   };
 
   const getIncome = () => {
@@ -43,25 +45,31 @@ function Child() {
       <h1 className="text_center">Expense Tracker</h1>
       <h3>
         Your Balance <br />
-        <span className="big-txt">{getIncome() + getExpense()}</span>
+        <span className="big-txt">PKR {getIncome() + getExpense()}</span>
       </h3>
       <div className="expense_container">
         <h3 className="IandE">
-          Income <br /> <span className="income-h3">{getIncome()}</span>
+          Income <br /> <span className="income-h3">PKR {getIncome()}</span>
         </h3>
         <h3 className="IandE">
           Expense <br />
-          <span className="expense-h3"> {getExpense()}</span>
+          <span className="expense-h3">PKR {getExpense()}</span>
         </h3>
       </div>
       <h3 className="border">History</h3>
       <ul className="hist-div">
         {transactions.map((transOb, indx) => {
           return (
-            <li key={indx}>
-              <span>{transOb.desc}</span>
+              <>
+                       
+            <li key={indx} >
+              
+              <span className="cash"><IconButton id="deleteBtn" aria-label="delete" size="small">
+          <DeleteIcon />
+        </IconButton> {transOb.desc}</span>
               <span>{transOb.amount}</span>
             </li>
+          </>
           );
         })}
       </ul>
