@@ -18,6 +18,8 @@ function Child() {
       amount: Number(newAmount),
       desc: newDesc,
     });
+    setDesc('')
+    setAmount('')
   };
 
   const getIncome = () => {
@@ -72,7 +74,7 @@ function Child() {
 
           <input
             autoComplete="off"
-            name="thing"
+            value={newDesc}
             type="text"
             placeholder="Enter text..."
             onChange={(ev) => setDesc(ev.target.value)}
@@ -87,7 +89,7 @@ function Child() {
             (negative - expense, positive - income)
           </label>
           <input
-            name="amounts"
+            value={newAmount}
             type="number"
             placeholder="Enter amount..."
             onChange={(ev) => setAmount(ev.target.value)}
