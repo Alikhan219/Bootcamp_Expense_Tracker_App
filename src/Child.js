@@ -3,9 +3,13 @@ import "./App.css";
 import { TransactionContext } from "./TransContext";
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
+import { v4 as uuidv4 } from 'uuid';
 
 
-function Child() {
+function Child () {
+  
+  const {deleteTransaction} =useContext(TransactionContext)
+ 
   let { transactions, addTransaction } = useContext(TransactionContext);
   let [newDesc, setDesc] = useState("");
   let [newAmount, setAmount] = useState("");
@@ -19,10 +23,13 @@ function Child() {
     addTransaction({
       amount: Number(newAmount),
       desc: newDesc,
+      id: uuidv4()
+      
     });
     setDesc('')
     setAmount(0)
   };
+  const addItem=()=>{}
 
   const getIncome = () => {
     let income = 0;
@@ -59,12 +66,16 @@ function Child() {
       <h3 className="border">History</h3>
       <ul className="hist-div">
         {transactions.map((transOb, indx) => {
+        debugger;
           return (
               <>
-                       
             <li key={indx} >
               
-              <span className="cash"><IconButton id="deleteBtn" aria-label="delete" size="small">
+              <span className="cash"><IconButton aria-label="delete" id="deleteBtn" size= "small" onClick={()=>
+              deleteTransaction(transOb.id)
+              
+              }>
+              
           <DeleteIcon />
         </IconButton> {transOb.desc}</span>
               <span>{transOb.amount}</span>
@@ -105,7 +116,7 @@ function Child() {
           />
         </div>
         <br />
-        <button className="btn">Add Transaction</button>
+        <button className="btn" onClick={addItem}>Add Transaction</button>
       </form>
     </div>
   );
